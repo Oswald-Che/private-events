@@ -2,7 +2,7 @@
 <div> Welcome <%= @user.name %> </div>
 <% @user.events.each do |event| %>
     <div>
-        <div><%= event.title%></div>
+        <div><%= event.name%></div>
         <div><%= event.description%></div>
     </div>
 <% end %>
