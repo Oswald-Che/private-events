@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: {
-                       sessions: "users/sessions",
-                     }
+ #  sessions: "users/sessions",
+                       }
   devise_scope :user do
     get "/users/sign_out" => "devise/sessions#destroy"
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-  resources :users do
+  resources :user, only: [:index, :show] do
     resources :events
   end
   root "events#index"

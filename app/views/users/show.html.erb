@@ -1,1 +1,8 @@
 <h1>Haha it worked</h1>
+<div> Welcome <%= @user.name %> </div>
+<% @user.events.each do |event| %>
+    <div>
+        <div><%= event.title%></div>
+        <div><%= event.description%></div>
+    </div>
+<% end %>

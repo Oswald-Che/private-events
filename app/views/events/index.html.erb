@@ -1,6 +1,13 @@
-<h2>List of all events taking place</h2>
+<% if user_signed_in? %>
+        <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+    <% else %>
+        <%= link_to "Sign Up", new_user_registration_path %>
+        <%= link_to "Log In", new_user_session_path,  data: { turbo: "false" } %>
+<% end %>
+<h2>List of all events taking place</h2> 
 <% @events.each do |event| %>
     <ul>
-        <li><%=event%></li>
+        <li><%=event.title%></li>
+        <li><%=event.description%></li>
     </ul>
 <% end %>
