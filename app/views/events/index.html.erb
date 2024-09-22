@@ -10,5 +10,10 @@
     <ul>
         <li><%=event.name%></li>
         <li><%=event.description%></li>
+        <li><%=event.date%></li>
+
+        <% if user_signed_in? %>
+            <%= link_to 'Event', user_event_path(current_user.id, event.id)%>
+        <% end %>
     </ul>
 <% end %>

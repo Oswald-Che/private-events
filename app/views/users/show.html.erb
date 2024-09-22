@@ -6,3 +6,7 @@
         <div><%= event.description%></div>
     </div>
 <% end %>
+<div>Attended Events</div>
+<% @user.attended_events.each do |event|%>
+    <%= event.name %>
+<% end%>

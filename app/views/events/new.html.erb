@@ -4,8 +4,13 @@
         <%= form.text_field :name%>
     </div>
     <div class="field">
-        <%= form.label :description, 'description' %>
+        <%= form.label :description, 'Description' %>
         <%= form.text_area :description %>
     </div>
+    <div class="field">
+        <%= form.label :date, 'Date' %>
+        <%= form.date_field :date %>
+    </div>
+
     <div class="field"><%= form.submit  'Create Post' %></div>
 <% end %>
