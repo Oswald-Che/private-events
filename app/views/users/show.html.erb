@@ -1,12 +1,19 @@
 <h1>Haha it worked</h1>
 <div> Welcome <%= @user.name %> </div>
+<div>Hosted Events</div>
 <% @user.events.each do |event| %>
-    <div>
-        <div><%= event.name%></div>
-        <div><%= event.description%></div>
-    </div>
+    <%= render event %>
 <% end %>
 <div>Attended Events</div>
-<% @user.attended_events.each do |event|%>
-    <%= event.name %>
+
+<div>Past Events</div>
+
+<% @user.attended_events.past_events.each do |event| %>   
+    
+    <%= render event%>
+  
 <% end%>
+<div>Upcoming Events</div>
+<% @user.attended_events.upcoming_events.each do |event| %>   
+     <%= render event%>
+<% end %>

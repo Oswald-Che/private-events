@@ -5,15 +5,21 @@
         <%= link_to "Sign Up", new_user_registration_path %>
         <%= link_to "Log In", new_user_session_path,  data: { turbo: "false" } %>
 <% end %>
+<div> <%= current_user.name%> <%= current_user.id%></div>
 <h2>List of all events taking place</h2> 
-<% @events.each do |event| %>
-    <ul>
-        <li><%=event.name%></li>
-        <li><%=event.description%></li>
-        <li><%=event.date%></li>
+<div>Past Events</div>
+<% @events.past_events.each do |event| %>
+  
+    <%= render event %>
+    <% if user_signed_in? %>
+        <%= link_to 'Event', user_event_path(current_user.id, event.id)%>
+    <% end %>
 
-        <% if user_signed_in? %>
-            <%= link_to 'Event', user_event_path(current_user.id, event.id)%>
-        <% end %>
-    </ul>
+<% end %>
+<div>Upcoming Events</div>
+<% @events.upcoming_events.each do |event| %>
+    <%= render event %>
+    <% if user_signed_in? %>
+        <%= link_to 'Event', user_event_path(current_user.id, event.id)%>
+    <% end %>
 <% end %>

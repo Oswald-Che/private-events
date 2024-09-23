@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!, except: [:index]
+  before_action :authorize_user, only: [:update, :edit]
 
   def index
     @events = Event.all
@@ -22,9 +23,29 @@ class EventsController < ApplicationController
     end
   end
 
+  def edit
+    @event = Event.find(params[:id])
+  end
+
+  def update
+    @event = Event.find(params[:id])
+
+    if @event.update(event_params)
+      redirect_to current_user
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
   private
 
   def event_params
     params.require(:event).permit(:name, :description, :date)
+  end
+
+  def authorize_user
+    unless current_user.id.to_i == params[:user_id].to_i
+      redirect_to root_path
+    end
   end
 end
