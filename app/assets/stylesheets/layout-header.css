@@ -1,0 +1,30 @@
+body{
+    margin: 0px;
+    padding: 0px;
+}
+
+.header{
+    height: 50px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: space-between;
+    background-color: teal;
+    color: white;
+}
+.header > .links > ul{
+   list-style: none;
+   display: flex;
+   gap: 20px;
+   padding-right: 80px;
+}
+
+.header > .header-name{
+    font-size: 1.4rem ;
+    padding-left: 40px;
+}
+
+.header > .links > ul a{
+    text-decoration: none;
+    color: white;
+}
