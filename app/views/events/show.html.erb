@@ -4,7 +4,7 @@
     <div><%= user.name %></div>
 <% end%>
 
-<%= link_to "Edit Article", edit_user_event_path%>
+<%= link_to "Edit Article", edit_event_path%>
 <% unless @event.attendees.include?(current_user) %>
-    <%= button_to "Attend event", user_event_events_users_path(current_user.id, @event.id), method: :post %>
+    <%= button_to "Attend event", event_events_users_path(current_user.id, @event.id), method: :post %>
 <% end %>

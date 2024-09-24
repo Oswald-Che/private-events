@@ -1,0 +1,26 @@
+.event-body{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.event-body > .event-cards > .event-card{
+    box-sizing: border-box;
+    padding: 20px;
+    height: 200px;
+    width: 300px;
+    border-radius: 12px;
+    border: 1px solid teal;
+    box-shadow: 3px 3px 4px lightgray;
+}
+
+.event-body .event-cards{
+    display: flex;
+    gap: 20px;
+}
+
+.event-body > .event-cards > .event-card ul{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}

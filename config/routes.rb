@@ -7,9 +7,10 @@ Rails.application.routes.draw do
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   resources :users, only: [:index, :show] do
-    resources :events do
-      resources :events_users, only: [:new, :create]
-    end
+  end
+
+  resources :events do
+    resources :events_users, only: [:new, :create]
   end
   root "events#index"
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

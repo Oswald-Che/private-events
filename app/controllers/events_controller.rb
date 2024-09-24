@@ -44,7 +44,8 @@ class EventsController < ApplicationController
   end
 
   def authorize_user
-    unless current_user.id.to_i == params[:user_id].to_i
+    @event = Event.find(params[:id])
+    unless current_user.id.to_i == @event.creator_id
       redirect_to root_path
     end
   end
