@@ -15,10 +15,10 @@
         <div class="header-name">
             <%= link_to 'Private Event', root_path%>
         </div>
-        <div class="links">z
+        <div class="links">
             <ul>
                 <% if user_signed_in? %>
-                    <li> <%= link_to "#{current_user.name}", user_path(current_user) %> </li>
+                    <li> <%= link_to "#{current_user.name.capitalize}", user_path(current_user) %> </li>
                     <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
                     <li><%= link_to "Create Event", new_event_path %></li>
                 <% else %>

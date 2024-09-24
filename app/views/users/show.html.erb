@@ -1,19 +1,35 @@
-<h1>Haha it worked</h1>
+
 <div> Welcome <%= @user.name %> </div>
-<div>Hosted Events</div>
-<% @user.events.each do |event| %>
-    <%= render event %>
-<% end %>
-<div>Attended Events</div>
+<h3>Hosted Events</h3>
+
+<div class="event-cards">
+    <% @user.events.each do |event| %>
+        <div class="event-card">
+            <%= render event %>
+        </div>
+    <% end %>
+       <%= link_to new_event_path, class: "user-event-link" do%>
+            <div class="event-card create">
+                +
+            </div>
+        <% end %>
+</div>
+<h3>Attended Events</h3>
 
 <div>Past Events</div>
 
-<% @user.attended_events.past_events.each do |event| %>   
-    
-    <%= render event%>
-  
-<% end%>
+<div class="event-cards">
+    <% @user.attended_events.past_events.each do |event| %>
+        <div class="event-card">
+            <%= render event%>    
+        </div>
+    <% end%>
+</div>
 <div>Upcoming Events</div>
-<% @user.attended_events.upcoming_events.each do |event| %>   
-     <%= render event%>
-<% end %>
+<div class="event-cards">
+    <% @user.attended_events.upcoming_events.each do |event| %>
+           <div class="event-card">
+                <%= render event%>
+            </div>
+    <% end %>
+</div>

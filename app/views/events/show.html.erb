@@ -1,5 +1,8 @@
+<% stylesheet_link_tag 'event-show' %>
+
 <%= render @event %>
-<div>People Attending</div>
+<h3>People Attending</h3>
+
 <% @event.attendees.each do |user| %>
     <div><%= user.name %></div>
 <% end%>
