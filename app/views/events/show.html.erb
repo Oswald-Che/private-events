@@ -1,13 +1,27 @@
-<% stylesheet_link_tag 'event-show' %>
 
-<%= render @event %>
-<h3>People Attending</h3>
-
-<% @event.attendees.each do |user| %>
-    <div><%= user.name %></div>
-<% end%>
-
-<%= link_to "Edit Article", edit_event_path%>
-<% unless @event.attendees.include?(current_user) %>
-    <%= button_to "Attend event", event_events_users_path(current_user.id, @event.id), method: :post %>
-<% end %>
+<div class="event-container">
+   <div class="event-main">
+       
+        <div>Creator: <span><%= @event.creator.name.capitalize%></span></div>
+        <div>Event name: <span><%= @event.name%></span></div>
+        <div>Description: <span><%= @event.description%></span></div>
+        <div>Date: <span><%= @event.date%></span></div>
+        <h3>People Attending</h3>
+       
+       <% @event.attendees.each do |user| %>
+           <div class="attending"><%= user.name.capitalize %></div>
+       <% end%>
+       <% if @event.creator != current_user%>
+            <%if @event.attendees.include?(current_user) %>
+                <%= button_to "Leave event", event_events_user_path(@event, current_user), method: :delete %>
+            <% else %>
+                <%= button_to "Attend event", event_events_users_path(@event), method: :post %>
+            <% end %>
+        <% end%>       
+   </div>
+    <div class="edit-event">
+        <% if @event.creator == current_user %>
+            <%= link_to "Edit Article", edit_event_path%>
+        <% end %>
+    </div>
+</div>

@@ -1,0 +1,50 @@
+.event-container{
+    height: 90vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.event-container > .event-main{
+    height: 60vh;
+    width: 50vw;
+}
+
+.event-container > .event-main > div{
+    font-size: 1.3rem ;
+    font-weight: 800;
+}
+
+.event-container > .event-main span{
+    font-size: 1.1rem;
+    font-weight: normal;
+}
+.event-container > .event-main .attending{
+    font-size: 1.3rem;
+    font-weight: normal;
+}
+.event-container > .event-main > h3{
+    margin: 5px 0px 5px 0px;
+}
+
+.event-container > .event-main  button{
+    margin-top: 20px;
+    height: 30px;
+    width: 120px;
+    border-radius: 10px;
+    color: white;
+    border: 1px solid grey;
+    background-color: teal;
+}
+
+.event-container > .edit-event{
+    margin: 20px;
+    font-size: 1.3rem;
+    color: lightgreen;
+}
+.event-container > .edit-event > a{
+    color: green;
+    text-shadow: 1px 1px lightgreen;
+}
